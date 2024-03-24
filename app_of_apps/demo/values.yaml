@@ -1,0 +1,5 @@
+chartName: nullserv
+chartVersion: HEAD
+server: https://kubernetes.default.svc
+namespace: dev
+replica: 2

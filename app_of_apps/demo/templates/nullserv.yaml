@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nullserv-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://geek-cookbook.github.io/charts
+    targetRevision: {{ .Values.chartVersion }} # Use a specific tag/branch if required
+    chart: {{ .Values.chartName }}
+    helm:
+      values: |
+        controller:
+          replicas: {{ .Values.replica }}
+  destination:
+    server: {{ .Values.server }} # Target cluster URL
+    namespace: {{ .Values.namespace }} # Target namespace
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true # Be cautious with this in production
+    syncOptions:
+      - CreateNamespace=true 
