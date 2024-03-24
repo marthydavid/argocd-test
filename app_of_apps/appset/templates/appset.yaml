@@ -9,13 +9,13 @@ spec:
         elements:
           - name: dev
             namespace: dev
-            revision: "release-2.4.x"
+            revision: "{{ .Values.revisions.dev }}"
           - name: staging
             namespace: staging
-            revision: "staging-2.0.1"
+            revision: "{{ .Values.revisions.staging }}"
           - name: production
             namespace: production
-            revision: "prod-2.0.0"
+            revision: "{{ .Values.revisions.production }}"
   template:
     metadata:
       name: '{{name}}-nullserv-application'
@@ -29,6 +29,7 @@ spec:
           releaseName: 'nullserv-{{name}}'
           values: |
             name: 'nullserv-{{name}}'
+            namespace: '{{namespace}}'
           valueFiles: 
             - '../../values/{{name}}/values.yaml'
             
