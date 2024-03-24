@@ -18,24 +18,24 @@ spec:
             revision: "{{ .Values.revisions.production }}"
   template:
     metadata:
-      name: '{{name}}-nullserv-application'
+      name: '{{ "{{" }}name{{ "}}" }}-nullserv-application'
     spec:
       project: default
       source:
         repoURL: git@github.com:marthydavid/argocd-test.git
-        targetRevision: '{{revision}}' # or specify a branch, tag, or commit
+        targetRevision: '{{ "{{" }}revision{{ "}}" }}' # or specify a branch, tag, or commit
         path: app_of_apps/demo # Adjust this path to where your Helm chart is located in the repo
         helm:
-          releaseName: 'nullserv-{{name}}'
+          releaseName: 'nullserv-{{ "{{" }}name{{ "}}" }}'
           values: |
-            name: 'nullserv-{{name}}'
-            namespace: '{{namespace}}'
+            name: 'nullserv-{{ "{{" }}name{{ "}}" }}'
+            namespace: '{{ "{{" }}namespace{{ "}}" }}'
           valueFiles: 
-            - '../../values/{{name}}/values.yaml'
+            - '../../values/{{ "{{" }}name{{ "}}" }}/values.yaml'
             
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
+        namespace: '{{ "{{" }}namespace{{ "}}" }}'
       syncPolicy:
         automated:
           selfHeal: true
