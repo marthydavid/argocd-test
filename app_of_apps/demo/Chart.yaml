@@ -1,0 +1,21 @@
+apiVersion: v2
+name: demo
+description: A Helm chart for Kubernetes
+# A SemVer 2 version string, should be incremented for each change to the chart.
+version: 0.1.0
+# A SemVer 2 version string, the version of the application enclosed inside of this chart.
+appVersion: "1.0"
+# The URL to a relevant project page, git repo, or contact person
+home: https://github.com/marthydavid/argocd-test
+# A list of keywords about this project
+keywords:
+  - demo
+  - application
+# A list of sources used to build the application or chart.
+sources:
+  - https://github.com/marthydavid/argocd-test
+# A list of maintainers and their contact info.
+maintainers:
+  - name: David Marthy
+    email: marthy.david@gmail.com
+    url: https://github.com/marthydavid

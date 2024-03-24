@@ -9,13 +9,13 @@ spec:
         elements:
           - name: dev
             namespace: dev
-            revision: release-2.4.x
+            revision: "release-2.4.x"
           - name: staging
             namespace: staging
-            revision: prod-2.0.1
+            revision: "prod-2.0.1"
           - name: production
             namespace: production
-            revision: prod-2.0.0
+            revision: "prod-2.0.0"
   template:
     metadata:
       name: '{{name}}-nullserv-application'
@@ -23,15 +23,15 @@ spec:
       project: default
       source:
         repoURL: git@github.com:marthydavid/argocd-test.git
-        targetRevision: {{revision}} # or specify a branch, tag, or commit
+        targetRevision: '{{revision}}' # or specify a branch, tag, or commit
         path: app_of_apps/demo # Adjust this path to where your Helm chart is located in the repo
         helm:
           # If you have values files within your repo, you can specify them here
           # valuesFiles:
           # - values-prod.yaml
           # Or specify inline values
-          valuesFiles: 
-            - values/{{name}}/values.yaml
+          valueFiles: 
+            - 'values/{{name}}/values.yaml'
             
       destination:
         server: https://kubernetes.default.svc
