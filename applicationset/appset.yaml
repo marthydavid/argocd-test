@@ -26,12 +26,11 @@ spec:
         targetRevision: '{{revision}}' # or specify a branch, tag, or commit
         path: app_of_apps/demo # Adjust this path to where your Helm chart is located in the repo
         helm:
-          # If you have values files within your repo, you can specify them here
-          # valuesFiles:
-          # - values-prod.yaml
-          # Or specify inline values
+          releaseName: 'nullserv-{{name}}'
+          values: |
+            name: 'nullserv-{{name}}'
           valueFiles: 
-            - 'values/{{name}}/values.yaml'
+            - '../../values/{{name}}/values.yaml'
             
       destination:
         server: https://kubernetes.default.svc
