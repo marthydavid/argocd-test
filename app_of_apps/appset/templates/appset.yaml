@@ -20,7 +20,7 @@ spec:
     metadata:
       name: '{{ "{{" }}name{{ "}}" }}-nullserv-application'
     spec:
-      project: default
+      project: demo
       source:
         repoURL: git@github.com:marthydavid/argocd-test.git
         targetRevision: '{{ "{{" }}revision{{ "}}" }}' # or specify a branch, tag, or commit

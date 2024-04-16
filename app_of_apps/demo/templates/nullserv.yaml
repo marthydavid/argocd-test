@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.name }}
   namespace: argocd
 spec:
-  project: default
+  project: demo
   source:
     repoURL: https://geek-cookbook.github.io/charts
     targetRevision: {{ .Values.chartVersion }} # Use a specific tag/branch if required
