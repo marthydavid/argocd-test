@@ -16,7 +16,7 @@ spec:
           staging: staging-2.0.1
           production: prod-2.0.1
   destination:
-    server: https://mdavid-vcluster.erfk.kozpont.otp # Target cluster URL
+    server: https://kubernetes.default.svc # Target cluster URL
     namespace: argocd # Target namespace
   syncPolicy:
     automated:
