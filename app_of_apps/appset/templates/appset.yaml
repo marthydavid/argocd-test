@@ -34,7 +34,7 @@ spec:
             - '../../values/{{ "{{" }}name{{ "}}" }}/values.yaml'
             
       destination:
-        server: https://kubernetes.default.svc
+        server: https://mdavid-vcluster.erfk.kozpont.otp
         namespace: '{{ "{{" }}namespace{{ "}}" }}'
       syncPolicy:
         automated:

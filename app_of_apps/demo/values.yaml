@@ -1,6 +1,6 @@
 chartName: nullserv
 chartVersion: HEAD
-server: https://kubernetes.default.svc
+server: https://mdavid-vcluster.erfk.kozpont.otp
 name: 
 namespace: dev
 replica: 2
